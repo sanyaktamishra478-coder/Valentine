@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day, Bubuuu! 💗</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef, #ffecd2);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .container {
+            max-width: 1000px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+        h1 {
+            color: #e91e63;
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .content {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .paragraph {
+            flex: 1;
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-align: left;
+        }
+        .photo-section {
+            flex-shrink: 0;
+            width: 300px;
+            height: 300px;
+            border: 5px solid #e91e63;
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        #photo-display {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+        .upload-label {
+            cursor: pointer;
+            color: #e91e63;
+            font-weight: bold;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .emojis {
+            font-size: 2em;
+            margin: 20px 0;
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Valentine's Day, Bubuuu! 💗</h1>
+        <div class="emojis">✨🌷💗</div>
+        <div class="content">
+            <div class="paragraph">
+                <p>From the day we met in class 7th, sitting side by side in that noisy classroom, I knew there was something special about you, Bubuuu. We've been through it all – the endless fun during recess, the silly fights over who got the last cookie in lunch, the tears when things got tough, and the deep love that kept us going. Now in class 9th, with just two months until we move to 10th, our bond has only grown stronger. Remember those hilarious moments when we tried to sneak notes during class and got caught by the teacher, or the time we organized a secret picnic in the school garden that turned into a muddy adventure? We've laughed until our stomachs hurt, cried on each other's shoulders during exams, and shared dreams of our future together. Through 2 years and 5 months, you've been my best friend, my confidant, and the one who makes every day brighter. I love your goofy jokes that always crack me up, your unwavering support during tough times, and how you hold my hand through all the ups and downs. You're my rock, my partner in crime, and the love of my life. Here's to more fun, fewer fights, endless love, and a future where we conquer 10th grade and beyond together. I cherish every moment with you, my forever Valentine, Bubuuu. ✨🌷💗</p>
+            </div>
+            <div class="photo-section">
+                <label for="photo-input" class="upload-label">Click to Add a Special Photo of Us 💕</label>
+                <input type="file" id="photo-input" accept="image/*">
+                <img id="photo-display" alt="Your special photo">
+            </div>
+        </div>
+    </div>
+    <footer>
+        Made with love for you, Bubuuu! 💖
+    </footer>
+
+    <script>
+        const photoInput = document.getElementById('photo-input');
+        const photoDisplay = document.getElementById('photo-display');
+        const uploadLabel = document.querySelector('.upload-label');
+
+        photoInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    photoDisplay.src = e.target.result;
+                    photoDisplay.style.display = 'block';
+                    uploadLabel.style.display = 'none';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
